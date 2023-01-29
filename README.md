@@ -1,0 +1,2 @@
+# react-apis
+various custom apis to test react and next apps
