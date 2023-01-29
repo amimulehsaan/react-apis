@@ -1,0 +1,21 @@
+{
+  "name": "reactapis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amimul ehsan",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongodb": "^4.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "replace-in-file": "^6.3.5",
+    "through2": "^4.0.2"
+  }
+}
