@@ -1,0 +1,57 @@
+pipeline{
+	agent any
+	stages{
+		stage('git checkout'){
+			steps{
+				echo "checking out from git repo"
+				git branch: 'main', credentialsId: 'bb2683b6-2330-416e-897c-bb5fcc5f77b4', url: 'https://github.com/amimulehsaan/react-apis.git'
+				echo "checked out successfully"
+			}
+		}
+		stage('build'){
+			steps{
+				echo "building"
+				dir('jenkins-pipeline') {
+                 	bat 'build.bat'
+                }
+			
+			}
+		}
+		stage('compile'){
+			steps{
+				echo "compiling"
+				dir('jenkins-pipeline') {
+                 	bat 'compile.bat'
+                }
+			
+			}
+		}
+		stage('test'){
+			steps{
+				echo "tested sccessfully"
+			}
+		}
+		stage('deploy'){
+			steps{
+				echo "deployed sccessfully"
+			}
+		}
+	}
+	post{
+		always{
+			echo "this will always run"
+		}
+		success{
+			echo "this will run only if successful"
+		}
+		failure{
+			echo "this will run only if failed"
+		}
+		unstable{
+			echo "this will run if some steps failed but not all"
+		}
+		changed{
+			echo "this will run if the state of the pipeline has chaged like it was failing first but now its successful"
+		}
+	}
+}
